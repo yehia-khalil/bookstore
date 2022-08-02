@@ -13,12 +13,14 @@
 
   <body>
   <% if current_user %>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% if current_user.is_admin %>
-      <%= link_to "Admin Panel", rails_admin_path%>
-    <% end %>
-    <% else %>
-    <%= link_to "Login", new_user_session_path %>
+    <ul>
+      <% if current_user.is_admin %>
+          <li><%= link_to "Admin Panel", rails_admin_path%></li>
+      <% end %>
+      <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+      <li><%= link_to "Login", new_user_session_path %></li>
+    </ul>
   <% end %>
   
     <%= yield %>
