@@ -9,6 +9,7 @@ class Book < ApplicationRecord
     validate :image_present
     
     private 
+    
     def image_type
         if !image.content_type.in?(%w(image/jpeg image/png image/jpg))
             errors.add(:image, 'must be jpeg, jpg or png') 
