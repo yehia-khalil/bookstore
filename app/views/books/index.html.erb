@@ -1,0 +1,42 @@
+<h1>Books</h1>
+<%= link_to "Create a new book", new_book_path%>
+
+<% @books.each do |book| %>
+    <p>
+        <strong>Name: </strong>
+        <%= book.name %> 
+    </p>
+    <p>
+        <strong>image: </strong>
+        <%= image_tag(book.image, {:style => "height:200px;"}) %>
+    </p>
+    <p>
+        <strong>price: </strong>
+        <%= book.price %> L.E
+    </p>
+    <p>
+        <strong>description: </strong>
+        <%= book.description %> 
+    </p>
+    <p>
+        <strong>created at: </strong>
+        <%= book.created_at %> 
+    </p>
+    <p>
+        <strong>updated at: </strong>
+        <%= book.updated_at %> 
+    </p>
+    <p>
+        <strong>created by: </strong>
+        <%= link_to book.admin.email, show_admin_path(book.admin) %> 
+    </p>
+    <ul>
+        <li><%= link_to "Edit", edit_book_path(book) %></li>
+        <li><%= link_to "Show", book_path(book) %></li>
+        <li><%= link_to "Destroy", (book), data: {
+                    method: :delete,
+                    confirm: "Are you sure?"
+                  } %></li>
+    </ul>
+<hr/>
+<% end %>
