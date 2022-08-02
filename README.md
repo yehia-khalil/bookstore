@@ -8,11 +8,13 @@ This application is running on Ruby version `2.7.3p183` and rails framework vers
 After all is properly installed, first clone this repository then:
 
 1- install all dependencies
+
 run `bundle insall`
 
 2- Create db and migrate schema
 run 
 `rails db:create
 rails db:migrate`
+
 3- Now run your application
 `rails s`
