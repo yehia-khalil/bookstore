@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is running on Ruby version `2.7.3p183` and rails framework version `7.0.3.1`. So make sure they are properly installed and configured prior to initializing the app. And here are some links for reference:
 
-Things you may want to cover:
+* https://www.ruby-lang.org/en/downloads/
+* https://guides.rubyonrails.org/getting_started.html#installing-ruby
 
-* Ruby version
+After all is properly installed, first clone this repository then:
 
-* System dependencies
+1- install all dependencies
+run `bundle insall`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+2- Create db and migrate schema
+run 
+`rails db:create
+rails db:migrate`
+3- Now run your application
+`rails s`
