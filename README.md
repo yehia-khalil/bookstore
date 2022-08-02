@@ -13,7 +13,7 @@ This application is running on Ruby version `2.7.3` and rails framework version 
 
 ## Follow these steps to install the application on your local environemt: 
 After all is properly installed, first clone this repository with
-    git clone https://github.com/yehia-khalil/bookstore.git
+> git clone https://github.com/yehia-khalil/bookstore.git
 
 
 then:
