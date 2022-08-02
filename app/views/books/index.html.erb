@@ -2,7 +2,7 @@
 <% unless !current_user.is_admin %>
     <%= link_to "Create a new book", new_book_path%>
 <% end %>
-<% if@books.count %>
+<% if@books.count>0 %>
     <table id="books">
         <tr>
             <th>Name</th>
