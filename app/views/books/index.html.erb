@@ -1,7 +1,5 @@
 <h1>Books</h1>
-<% unless !current_user.is_admin %>
-    <%= link_to "Create a new book", new_book_path%>
-<% end %>
+<%= link_to "Create a new book", new_book_path%>
 <% if@books.count>0 %>
     <table id="books">
         <tr>
@@ -39,13 +37,11 @@
             </td>
             <td>
             <ul>
-            <% unless !current_user.is_admin %>
                 <li><%= link_to "Edit", edit_book_path(book) %></li>
                 <li><%= link_to "Destroy", (book), data: {
                     method: :delete,
                             confirm: "Are you sure?"
                         } %></li>
-            <% end %>
                 <li><%= link_to "Show", book_path(book) %></li>
             </ul>
             </td>
