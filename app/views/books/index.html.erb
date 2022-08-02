@@ -2,45 +2,54 @@
 <% unless !current_user.is_admin %>
     <%= link_to "Create a new book", new_book_path%>
 <% end %>
-
-<% @books.each do |book| %>
-    <p>
-        <strong>Name: </strong>
-        <%= book.name %> 
-    </p>
-    <p>
-        <strong>image: </strong>
-        <%= image_tag(book.image, {:style => "height:200px;"}) %>
-    </p>
-    <p>
-        <strong>price: </strong>
-        <%= book.price %> L.E
-    </p>
-    <p>
-        <strong>description: </strong>
-        <%= book.description %> 
-    </p>
-    <p>
-        <strong>created at: </strong>
-        <%= book.created_at %> 
-    </p>
-    <p>
-        <strong>updated at: </strong>
-        <%= book.updated_at %> 
-    </p>
-    <p>
-        <strong>created by: </strong>
-        <%= link_to book.user.email, show_user_path(book.user) %> 
-    </p>
-    <ul>
-    <% unless !current_user.is_admin %>
-        <li><%= link_to "Edit", edit_book_path(book) %></li>
-        <li><%= link_to "Destroy", (book), data: {
-            method: :delete,
-                    confirm: "Are you sure?"
-                  } %></li>
-    <% end %>
-        <li><%= link_to "Show", book_path(book) %></li>
-    </ul>
-<hr/>
-<% end %>
+<% if@books.count %>
+    <table id="books">
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>created at</th>
+            <th>updated at</th>
+            <th>created by</th>
+            <th>Actions</th>
+        </tr>
+        <% @books.each do |book| %>
+        <tr>
+            <td>
+                <%= book.name %> 
+            </td>
+            <td>
+                <%= image_tag(book.image, {:style => "height:100px;"}) %>
+            </td>
+            <td>
+                <%= book.price %> L.E
+            </td>
+            <td>
+                <%= book.description %> 
+            </td>
+            <td>
+                <%= book.created_at %> 
+            </td>
+            <td>
+                <%= book.updated_at %> 
+            </td>
+            <td>
+                <%= link_to book.user.email, show_user_path(book.user) %> 
+            </td>
+            <td>
+            <ul>
+            <% unless !current_user.is_admin %>
+                <li><%= link_to "Edit", edit_book_path(book) %></li>
+                <li><%= link_to "Destroy", (book), data: {
+                    method: :delete,
+                            confirm: "Are you sure?"
+                        } %></li>
+            <% end %>
+                <li><%= link_to "Show", book_path(book) %></li>
+            </ul>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+<%end%>
