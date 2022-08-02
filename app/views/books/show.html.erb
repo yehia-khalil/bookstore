@@ -27,7 +27,7 @@
     </p>
     <p>
         <strong>created by: </strong>
-        <%= link_to @book.admin.email, show_admin_path(@book.admin) %> 
+        <%= link_to @book.user.email, show_user_path(@book.user) %> 
     </p>
 
 <%= link_to "Go back home", root_path %>

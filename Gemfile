@@ -9,7 +9,6 @@ gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-# Use sqlite3 as the database for Active Record
 gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
@@ -73,3 +72,5 @@ end
 
 gem "byebug", "~> 11.1", :groups => [:development, :test]
 gem 'jquery-rails'
+gem 'rails_admin', '~> 3.0'
+gem "sassc-rails"

@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
-    before_action :authenticate_admin!
+    before_action :authenticate_user!
+    before_action :is_admin?, only: [:new,:create,:edit,:update,:destroy]
+
     def index
         @books=Book.all
     end
@@ -14,7 +16,6 @@ class BooksController < ApplicationController
     
     def create
         @book = Book.new(book_params)
-        @book.admin_id = current_admin.id
         if @book.save
           redirect_to root_path
         else

@@ -1,5 +1,7 @@
 <h1>Books</h1>
-<%= link_to "Create a new book", new_book_path%>
+<% unless !current_user.is_admin %>
+    <%= link_to "Create a new book", new_book_path%>
+<% end %>
 
 <% @books.each do |book| %>
     <p>
@@ -28,15 +30,17 @@
     </p>
     <p>
         <strong>created by: </strong>
-        <%= link_to book.admin.email, show_admin_path(book.admin) %> 
+        <%= link_to book.user.email, show_user_path(book.user) %> 
     </p>
     <ul>
+    <% unless !current_user.is_admin %>
         <li><%= link_to "Edit", edit_book_path(book) %></li>
-        <li><%= link_to "Show", book_path(book) %></li>
         <li><%= link_to "Destroy", (book), data: {
-                    method: :delete,
+            method: :delete,
                     confirm: "Are you sure?"
                   } %></li>
+    <% end %>
+        <li><%= link_to "Show", book_path(book) %></li>
     </ul>
 <hr/>
 <% end %>

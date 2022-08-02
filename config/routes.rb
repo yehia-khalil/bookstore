@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  root 'books#index'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users
+  root 'home#index'
 
-  devise_for :admins
   resources :books
 
-  get "/admins/:id", to: 'admins#show', as: 'show_admin'
+  get "/users/:id", to: 'admins#show', as: 'show_user'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

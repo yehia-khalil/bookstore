@@ -1,7 +1,7 @@
 class AdminsController < ApplicationController
-    before_action :authenticate_admin!
+    before_action :authenticate_user!
 
     def show
-        @admin=Admin.find(params[:id])
+        @user=User.find(params[:id])
     end
 end
