@@ -23,11 +23,11 @@ then:
 run `bundle insall`
 
 2- Create db and migrate schema
+* Make sure to edit `database.yml` file and write down your configured postgres database username and password, before running the following commands :
 
-run 
+
 `rails db:create` , 
 `rails db:migrate` and then `rails db:seed`
-
 * I have added seeders for a user with admin access with credentials of  `email: admin@admin.com` and `password: 123456`.
 
 3- Now run your application using the command
